@@ -88,3 +88,7 @@ Regularly review and adjust resource allocations for your Kubernetes pods based 
 Set up alerts based on cost thresholds to be notified when spending exceeds predefined limits. This allows for proactive cost management.
 
 Remember to monitor your application's resource usage and adjust your instance types based on evolving requirements.
+
+//////////////////////
+
+GIT URL -- https://github.com/singhmonica1999/codeworking.git
