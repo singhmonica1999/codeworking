@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-api
+  labels:
+    name: app-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      service: app-api
+  template:
+    metadata:
+      labels:
+        service: app-api
+    spec:
+      containers:
+      - name: app-api
+        image: 
+        imagePullPolicy: Always
+        livenessProbe:
+          httpGet:
+            path: /health_check
+            port: 5153
+          initialDelaySeconds: 5
+          timeoutSeconds: 2
+        readinessProbe:
+          httpGet:
+            path: "/readiness_check"
+            port: 5153
+          initialDelaySeconds: 5
+          timeoutSeconds: 5
+        resources:
+          limits:
+            cpu: "700m"
+            memory: "256Mi"
+          requests:
+            cpu: "500m"
+            memory: "128Mi"
+        env:
+          - name: DB_USERNAME
+            valueFrom:
+              configMapKeyRef:
+                name: db-env
+                key: DB_USERNAME
+          - name: DB_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: db-secret
+                key: DB_PASSWORD
+      restartPolicy: Always
