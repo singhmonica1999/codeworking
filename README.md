@@ -76,7 +76,6 @@ kubectl apply -f /deployment
 ### Saving costs:
 
 1. Implement Autoscaling:
-
 Utilize Kubernetes Horizontal Pod Autoscaling (HPA) to automatically adjust the number of replicas based on resource metrics. This helps scale resources up during peak demand and down during low demand, optimizing costs.
 
 2. Rightsize Resources:
