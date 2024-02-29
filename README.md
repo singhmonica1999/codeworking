@@ -68,7 +68,6 @@ Inside the analytics directory where your application lies. Run the command
 ```bash
 kubectl apply -f /deployment
 ```
-
 ### Instance Type Recommendation
 
 - For balanced workloads with average compute, memory, and network needs, consider AWS `t3` or `t4g` instances. This is because the api that we are running is not compute intensice so average memory CPU and networking resources can be sufficient enough for this deployment.
