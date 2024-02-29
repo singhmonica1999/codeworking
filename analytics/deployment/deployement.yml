@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: app-api
-        image: 968861427853.dkr.ecr.us-east-1.amazonaws.com/coworker-repo:1
+        image: 968861427853.dkr.ecr.us-east-1.amazonaws.com/coworker-repo:2
         imagePullPolicy: Always
         livenessProbe:
           httpGet:
