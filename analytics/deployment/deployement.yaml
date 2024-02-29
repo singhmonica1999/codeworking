@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: app-api
-        image: 968861427853.dkr.ecr.us-east-1.amazonaws.com/coworker-repo:2
+        image: 968861427853.dkr.ecr.us-east-1.amazonaws.com/coworker-repo:3
         imagePullPolicy: Always
         livenessProbe:
           httpGet:
@@ -30,13 +30,6 @@ spec:
             port: 5153
           initialDelaySeconds: 5
           timeoutSeconds: 5
-        resources:
-          limits:
-            cpu: "700m"
-            memory: "256Mi"
-          requests:
-            cpu: "500m"
-            memory: "128Mi"
         env:
           - name: DB_USERNAME
             valueFrom:
@@ -48,4 +41,9 @@ spec:
               secretKeyRef:
                 name: db-secret
                 key: DB_PASSWORD
+          - name: DB_HOST
+            valueFrom:
+              configMapKeyRef:
+                name: db-env
+                key: DB_HOST
       restartPolicy: Always
