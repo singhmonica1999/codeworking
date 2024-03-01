@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: app-api
-        image: 968861427853.dkr.ecr.us-east-1.amazonaws.com/demo6-ecr:1
+        image: 760558510167.dkr.ecr.us-east-1.amazonaws.com/demo6-ecr:2
         imagePullPolicy: Always
         livenessProbe:
           httpGet:
@@ -46,4 +46,14 @@ spec:
               configMapKeyRef:
                 name: db-env
                 key: DB_HOST
+          - name: DB_PORT
+            valueFrom:
+              configMapKeyRef:
+                name: db-env
+                key: DB_PORT
+          - name: DB_NAME
+            valueFrom:
+              configMapKeyRef:
+                name: db-env
+                key: DB_NAME               
       restartPolicy: Always
